@@ -1,18 +1,12 @@
 import { Droppable } from "react-beautiful-dnd";
 import SingleNote from "./SingleNote";
+import { Todo } from "./model";
 
 interface Props {
   todos: Todo[];
   setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
-  completed: Todo[];
-  setCompleted: React.Dispatch<React.SetStateAction<Todo[]>>;
 }
-const TodoList: React.FC = ({
-  todos,
-  setTodos,
-  completed,
-  setCompleted,
-}: Props) => {
+const TodoList = ({ todos, setTodos }: Props) => {
   return (
     <>
       <div className="flex justify-between space-x-3 ">
@@ -68,10 +62,7 @@ const TodoList: React.FC = ({
                         {todo.todo}
                       </span>
                       <div className="flex items-center">
-                        <button
-                          className=" text-white px-4 py-2 rounded-md mr-2"
-                          onClick={() => handleEdit(todo.id)}
-                        >
+                        <button className=" text-white px-4 py-2 rounded-md mr-2">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"

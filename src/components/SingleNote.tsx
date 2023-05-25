@@ -77,7 +77,7 @@ const SingleNote = ({ todo, todos, setTodos, index }: Props) => {
             <div className="flex items-center">
               <button
                 className=" text-white px-4 py-2 rounded-md mr-2"
-                onClick={() => handleEdit(setEdit(true))}
+                // onClick={() => handleEdit(setEdit(true))}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

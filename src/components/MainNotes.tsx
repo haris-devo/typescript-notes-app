@@ -9,12 +9,12 @@ const MainNotes: React.FC = () => {
 
   const [todos, setTodos] = useState<Todo[]>([]);
 
-  const [completed, setCompleted] = useState<Todo[]>([]);
+  // const [completed, setCompleted] = useState<Todo[]>([]);
 
   const handleAdd = (e: React.FormEvent) => {
     e.preventDefault();
     if (todo) {
-      const newTodo = { id: Date.now(), todo, complete: false };
+      const newTodo = { id: Date.now(), todo, completed: false };
       setTodos([...todos, newTodo]);
       setTodo("");
     }
@@ -22,19 +22,24 @@ const MainNotes: React.FC = () => {
 
   return (
     <>
-      <DragDropContext> 
+      <DragDropContext
+        onDragEnd={(param) => {
+          const srcI = param.source.index;
+          const destI = param.destination?.index;
+          if (destI) {
+            const temp = todos[srcI];
+            todos[srcI] = todos[destI];
+            todos[destI] = temp;
+          }
+        }}
+      >
         <div className="flex justify-center w-full bg-gradient-to-r from-gray-700 bg-green-200 h-screen ">
           <header className="App-header my-4 w-[60%]">
             <h1 className="text-4xl text-center font-bold mb-5 tracking-widder">
               TASKIFY
             </h1>
             <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
-            <TodoList
-              todos={todos}
-              setTodos={setTodos}
-              completed={completed}
-              setCompleted={setCompleted}
-            />
+            <TodoList todos={todos} setTodos={setTodos} />
           </header>
         </div>
       </DragDropContext>
