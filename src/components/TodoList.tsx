@@ -28,6 +28,7 @@ const TodoList = ({ todos, setTodos }: Props) => {
                     setTodos={setTodos}
                   />
                 ))}
+                {provided.placeholder}
               </ul>
             </div>
           )}
@@ -157,6 +158,7 @@ const TodoList = ({ todos, setTodos }: Props) => {
                   )
                 )}
               </ul>
+              {provided.placeholder}
             </div>
           )}
         </Droppable>

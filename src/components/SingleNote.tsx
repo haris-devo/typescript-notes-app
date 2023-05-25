@@ -52,7 +52,7 @@ const SingleNote = ({ todo, todos, setTodos, index }: Props) => {
               }`}
             >
               {edit ? (
-                <form>
+                <form className="flex">
                   <input
                     // ref={inputEdit}
                     type="text"
@@ -63,7 +63,7 @@ const SingleNote = ({ todo, todos, setTodos, index }: Props) => {
                     onChange={(e) => setEditTodo(e.target.value)}
                   />
                   <button
-                    className="  hover:bg-red-600 py-1"
+                    className="  hover:bg-red-600 bg-black p-2 rounded-md"
                     type="submit"
                     onClick={(e) => handleEdit(e, todo.id)}
                   >
