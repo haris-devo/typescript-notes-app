@@ -16,6 +16,11 @@ const MainNotes: React.FC = () => {
     if (todo) {
       const newTodo = { id: Date.now(), todo, completed: false };
       setTodos([...todos, newTodo]);
+
+      // Save notes in localStorage
+
+      localStorage.setItem("todos", JSON.stringify([...todos, newTodo]));
+
       setTodo("");
     }
   };
