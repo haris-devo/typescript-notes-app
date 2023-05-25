@@ -54,7 +54,7 @@ const SingleNote = ({ todo, todos, setTodos, index }: Props) => {
               {edit ? (
                 <form>
                   <input
-                    ref={inputEdit}
+                    // ref={inputEdit}
                     type="text"
                     placeholder="Enter the Note Here"
                     className="task-input py-2 border-none  px-6 rounded shadow-lg shadow-gray-600 w-3/4 mr-3 
@@ -77,7 +77,7 @@ const SingleNote = ({ todo, todos, setTodos, index }: Props) => {
             <div className="flex items-center">
               <button
                 className=" text-white px-4 py-2 rounded-md mr-2"
-                // onClick={() => handleEdit(setEdit(true))}
+                onClick={(e) => handleEdit(e, setEdit(true))}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
