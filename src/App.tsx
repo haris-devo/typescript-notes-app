@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import MainNotes from './components/MainNotes'
 
 function App() {
   
@@ -7,7 +8,7 @@ function App() {
 
   return (
     <>
-      hello
+      <MainNotes />
     </>
   )
 }
